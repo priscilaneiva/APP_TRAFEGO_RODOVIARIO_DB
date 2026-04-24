@@ -1,0 +1,90 @@
+CREATE TABLE IF NOT EXISTS TabelaVeiculo(
+IDTabelVeiculo INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+CodigoVeiculo INTEGER NOT NULL,
+PlacaVeiculo TEXT NOT NULL,
+ModeloVeiculo TEXT NOT NULL,
+AnoVeiculo TEXT NOT NULL,
+CorVeiculo TEXT NOT NULL,
+CapacidadePassageiros INTEGER NOT NULL,
+StatusVeiculo TEXT NOT NULL,
+kmAtual TEXT NOT NULL);
+
+CREATE TABLE IF NOT EXISTS TabelaRastreamento(
+IDTabelaRastreamento INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+CodigoRastreio INTEGER NOT NULL,
+LatitudeRastreio TEXT NOT NULL,
+LongitudeRastreio TEXT NOT NULL,
+DataRastreio TEXT NOT NULL,
+HoraRastreio TEXT NOT NULL,
+VelocidadeRastreio TEXT NOT NULL,
+EnderecoRastreio TEXT NOT NULL);
+
+CREATE TABLE IF NOT EXISTS TabelaManutencao(
+IDTabelaManutencao INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+CodigoManutencao TEXT NOT NULL,
+DataManutencao TEXT NOT NULL,
+TipoManutencao TEXT NOT NULL,
+DescricaoManutencao TEXT NOT NULL,
+CustoManutencao TEXT NOT NULL,
+StatusManutencao TEXT NOT NULL,
+KMManutencao TEXT NOT NULL);
+
+CREATE TABLE IF NOT EXISTS TabelaViagem(
+IDTabelaViagem INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+CodigoViagem TEXT NOT NULL,
+OrigemViagem TEXT NOT NULL,
+DestinoViagem TEXT NOT NULL,
+HoraPartidaViagem TEXT NOT NULL,
+HoraChegadaViagem TEXT NOT NULL,
+PassageirosVagem TEXT NOT NULL,
+KMRodadosViagem TEXT NOT NULL,
+StatusViagem TEXT NOT NULL );
+
+INSERT INTO TabelaVeiculo(CodigoVeiculo, PlacaVeiculo, ModeloVeiculo,AnoVeiculo, CorVeiculo,CapacidadePassageiros,StatusVeiculo,kmAtual)VALUES
+('202601','QWE-789','MARCOPOLO','1990','BRANCO','40','ATIVO','190.000KM'),
+('202602','RTY-125','PARADISIO','1978','VERMELHO','40','INATIVO','500.000KM'),
+('202603','UIO-852','VIAGGIO','1988','AZUL','45','ATIVO','200.000KM'),
+('202604','RTY-478','PARADISIO','1978','VERMELHO','42','ATIVO','362.000KM'),
+('202605','IOP-159','VOLARE','1992','AMARELO','38','ATIVO','295.000KM'),
+('202606','ASD-754','RENOULT','1972','PRATA','35','INATIVO','600.000KM'),
+('202607','FGH-149','MARCOPOLO','1995','BRANCO','45','ATIVO','198.000KM'),
+('202608','JKL-478','SCANIA','2018','VERMELHO','45','ATIVO','90.000KM'),
+('202609','ZXC-367','VOLKSVAGEN','2015','AZUL','38','ATIVO','157.000KM'),
+('202600','VBN-587','COMIL','1970','VERMELHO','30','INATIVO','672.000KM');
+
+INSERT INTO TabelaRastreamento (CodigoRastreio, LatitudeRastreio, LongitudeRastreio,DataRastreio,HoraRastreio,
+VelocidadeRastreio,EnderecoRastreio) VALUES
+('202501','-19.925580', '-44.049560','01/02/2026','10:45:24','60KM/H','Av. Ápio Cardoso, 20 - Parque Sao Joao - MG'),
+('202502','-15.825474', '-47.854712','13/02/2026','14:12:13','45KM/H','Alameda Canuri, 72 - Planalto Paulista - São Paulo - SP'),
+('202503','-39.257489', '-12.4723145','22/03/2026','22:33:59','73KM/H','Avenida Nove de Julho, 5017 AN 10 - Bela Vista - Vitoria - ES'),
+('202504','-41.362514', '-33.256985','25/04/2026','17:47:02','86KM/H','Av. N. Sra. Copacabana	,1200,	Sala 40,Copacabana	Rio de Janeiro	RJ'),
+('202505','-13.965874', '-63.894715','25/05/2026','08:30:29','38KM/H','Rodovia BR-101,KM 200,Galpão A,Industrial,São José - SC'),
+('202506','-51.362514', '-62.365847','10/06/2026','05:19:39','90KM/H','Rua da Bahia	1500,10º andar,	Lourdes	,Belo Horizonte	-MG'),
+('202507','-31.257489', '-13.4723145','23/07/2026','03:49:02','26KM/H','Rua 24 de Maio,120	-	Centro,Porto Alegre	- RS'),
+('202508','-77.362514', '-52.256985','02/08/2026','13:02:02','80KM/H','Av. Agamenon Magalhães,3000	-	Derby,Recife - PE'),
+('202509','-47.257489', '-42.4723145','01/092026','04:56:29','79KM/H','Rua 45 de Abril,1315	-	Centro,Vitria	- ES'),
+('202500','-77.362514', '-52.256985','02/08/2026','13:02:02','80KM/H','Av. Agonia Arames,582	-	Derby,Recife - PE');
+
+INSERT INTO TabelaManutencao(CodigoManutencao,DataManutencao, TipoManutencao,CustoManutencao,StatusManutencao,KMManutencao) VALUES
+('202701','01/01/2027','PREVENTIVA','R$1350,00','FINALIZADA','190.000KM'),
+('202702','02/02/2027','PREDITIVA','R$1780,00','FINALIZADA','500.000KM'),
+('202703','03/03/2027','CORRETIVA','R$1960,00','PENDENTE','200.000KM'),
+('202704','04/04/2027','CORRETIVA','R$2150,00','FINALIZADA','362.000KM'),
+('202705','05/05/2027','PREVENTIVA','R$2250,00','PENDENTE','295.000KM'),
+('202706','06/06/2027','PREDITIVA','R$3350,00','PENDENTE','600.000KM'),
+('202707','07/07/2027','CORRETIVA','R$780,00','FINALIZADA','198.000KM'),
+('202708','08/08/2027','PREDITIVA','R$890,00','FINALIZADA','90.000KM'),
+('202709','09/09/2027','PREVENTIVA','R$1290,00','PENDENTE','157.000KM'),
+('202700','10/10/2027','PREVENTIVA','R$1590,00','FINALIZADA','672.000KM');
+
+INSERT INTO TabelaViagem(CodigoViagem, OrigemViagem, DestinoViagem,DataViagem,HoraPartidaViagem, HoraChegadaViagem, PassageirosViagem,StatusViagem,KMRodadosViagem)VALUES
+('202801','Belo Horizonte - MG','São Paulo- SP','01/02/2026','13:00','17:00','45','FINALIZADA','190.000KM'),
+('202802','São Paulo - SP','Santa Catarina - RS','02/02/2027','10:00','18:00','35','FINALIZADA','500.000KM'),
+('202803','Vitória - ES','Recife - PE - ','03/03/2027','03:00','18:00','58','PENDENTE','800.000KM'),
+('202804','Salvador - BA', 'São Paulo - SP','04/04/2027','12:00','22:00','49','PENDENTE','362.000KM'),
+('202805','Porto Seguro - BA ','Goiania - GO','05/05/2027','15:00','23:00','35','FINALIZADA','295.000KM'),
+('202806','Brasília - DF ','Belo Horizonte - MG','06/06/2027','02:00','16:00','38','PENDENTE','600.000KM'),
+('202807','Rio Branco - AC','Maceió - AL','07/07/2027','22:00','03:30','54','REALIZADA','198.000KM'),
+('202808','Macapá - AP','Manaus - AM','08/08/2027','01:00','12:30','36','REALIZADA','90.000KM'),
+('202809','São Luís - MA','Cuiabá - MT','09/09/2027','09:30','15:30','47','REALIZADA','157.000KM'),
+('202800','Campo Grande - MS','João Pessoa - PB','10/10/2027','11:00','56','18:30','PENDENTE','672.000KM');
